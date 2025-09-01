@@ -48,27 +48,33 @@ struct StoreDetailView: View {
                 .padding()
             
             ForEach(store.products) { products in
-                HStack(spacing: 8) {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(products.name)
-                            .bold()
+                
+                NavigationLink(destination: ProductDetailView(product: products)) {
+                    HStack(spacing: 8) {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(products.name)
+                                .bold()
+                            
+                            Text(products.description)
+                                .foregroundColor(.black.opacity(0.5))
+                                .multilineTextAlignment(.leading)
+                            
+                            Text(products.formattedPrice)
+                        }
                         
-                        Text(products.description)
-                            .foregroundColor(.black.opacity(0.5))
+                        Spacer()
                         
-                        Text(products.formattedPrice)
+                        Image(products.image)
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(12)
+                            .frame(width: 120, height: 120)
+                            .shadow(color: .black.opacity(0.3), radius: 20, x: 6, y: 8)
                     }
-                    
-                    Spacer()
-                    
-                    Image(products.image)
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(12)
-                        .frame(width: 120, height: 120)
-                        .shadow(color: .black.opacity(0.3), radius: 20, x: 6, y: 8)
+                    .padding()
+                    .foregroundColor(.black)
                 }
-                .padding()
+                
             }
         }
     }
