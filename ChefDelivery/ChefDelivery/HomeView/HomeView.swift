@@ -11,6 +11,7 @@ struct HomeView: View {
     
     @State private var isAnimating = false
     @State private var imageOffset: CGSize = .zero
+    @State private var buttonOffset: CGFloat = 0
     let buttonHeight: CGFloat = 80
     
     var body: some View {
@@ -86,6 +87,14 @@ struct HomeView: View {
                             .offset(x: 20)
                         
                         HStack {
+                            Capsule()
+                                .fill(Color("ColorRed"))
+                                .frame(width: buttonOffset + buttonOffset)
+                            
+                            Spacer()
+                        }
+                        
+                        HStack {
                             ZStack {
                                 Circle()
                                     .fill(Color("ColorRed"))
@@ -101,6 +110,25 @@ struct HomeView: View {
                             }
                             Spacer()
                         }
+                        .offset(x: buttonOffset)
+                        .gesture(
+                            DragGesture()
+                                .onChanged({ gesture in
+                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                        buttonOffset = gesture.translation.width
+                                    }
+                                })
+                            
+                                .onEnded({ _ in
+                                    if buttonOffset > (geomtry.size.width - 60) / 2 {
+                                        //
+                                    } else {
+                                        withAnimation(.easeInOut(duration: 0.3)) {
+                                            buttonOffset = 0
+                                        }
+                                    }
+                                })
+                        )
                         
                     }
                     .frame(width: geomtry.size.width - 60, height: buttonHeight)
