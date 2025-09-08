@@ -12,7 +12,7 @@ struct HomeView: View {
     @State private var isAnimating = false
     @State private var imageOffset: CGSize = .zero
     @State private var buttonOffset: CGFloat = .zero
-    @State private var showSecondScreen = false
+    @State private var isShowSecondScreen = false
     let buttonHeight: CGFloat = 80
     
     var body: some View {
@@ -121,7 +121,7 @@ struct HomeView: View {
                                 })
                                 .onEnded({ _ in
                                     if buttonOffset > (geometry.size.width - 60) / 2 {
-                                        showSecondScreen = true
+                                        isShowSecondScreen = true
                                     } else {
                                         withAnimation(.easeInOut(duration: 0.25)) {
                                             buttonOffset = 0
@@ -141,7 +141,7 @@ struct HomeView: View {
                 isAnimating = true
             }
         }
-        .fullScreenCover(isPresented: $showSecondScreen) {
+        .fullScreenCover(isPresented: $isShowSecondScreen) {
             ContentView()
         }
     }
