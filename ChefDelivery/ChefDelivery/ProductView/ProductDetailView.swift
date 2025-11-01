@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductDetailView: View {
     
     let product: ProductType
+    var server = HomeService()
     @State private var productQuantity = 1
     
     var body: some View {
@@ -21,9 +22,27 @@ struct ProductDetailView: View {
         ProductDetailQuantityView(productQuantity: $productQuantity)
         
         Spacer()
-            
-        ProductDetailButtonView()
+        
+        ProductDetailButtonView {
+            Task {
+                await confirmOrder()
+            }
         }
+    }
+    
+    func confirmOrder() async {
+        do {
+            let result = try await server.confirmOrder(product: product)
+            switch result {
+            case .success(let message):
+                print(message)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
     
 }
 
@@ -32,9 +51,12 @@ struct ProductDetailView: View {
 }
 
 struct ProductDetailButtonView: View {
+    var onButtonPress: () -> Void
+    
     var body: some View {
         Button {
-            print("O botão foi pressionado")
+            onButtonPress()
+            
         } label: {
             HStack {
                 Image(systemName: "cart")
