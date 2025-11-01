@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StoreDetailsHeaderView: View {
     
-    @EnvironmentObject var store: StoreType
+    let store: StoreType
     
     var body: some View {
         VStack {
@@ -44,6 +44,5 @@ struct StoreDetailsHeaderView: View {
 }
 
 #Preview {
-    StoreDetailsHeaderView()
-        .environmentObject(storesMock[0])
+    StoreDetailsHeaderView(store: storesMock[0])
 }

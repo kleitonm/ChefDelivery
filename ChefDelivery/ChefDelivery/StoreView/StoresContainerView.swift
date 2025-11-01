@@ -10,15 +10,16 @@ import SwiftUI
 struct StoresContainerView: View {
     
     let title = "Lojas"
+    var stores: [StoreType]
     @State private var ratingFilter = 0
     @State private var minDistanceFilter: Double = 0
     @State private var maxDistanceFilter: Double = 100
     
     var filteredStores: [StoreType] {
-        return storesMock.filter { store in
-            store.stars >= ratingFilter && (store.distance >= minDistanceFilter && store.distance < maxDistanceFilter)
+            return stores.filter { store in
+                store.stars >= ratingFilter
+            }
         }
-    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -89,8 +90,7 @@ struct StoresContainerView: View {
                 } else {
                     ForEach(filteredStores) { mock in
                         NavigationLink {
-                            StoreDetailView()
-                                .environmentObject(mock)
+                            StoreDetailView(store: mock)
                         } label: {
                             StoreItemView(store: mock)
                         }
@@ -105,8 +105,7 @@ struct StoresContainerView: View {
 
 struct StoresContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        StoresContainerView()
+        StoresContainerView(stores: storesMock)
         .previewLayout(.sizeThatFits)
-        .environmentObject(storesMock[0])
     }
 }
