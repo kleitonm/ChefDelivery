@@ -8,16 +8,60 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CE923CA7-AFEB-43A2-904E-96E5401455DA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChefDelivery/Networking/HomeService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "confirmOrder(product:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CE923CA7-AFEB-43A2-904E-96E5401455DA - 750f69ba4ac8a8e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ChefDelivery.HomeService.confirmOrder(product: ChefDelivery.ProductType) async throws -&gt; Swift.Result&lt;Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, ChefDelivery.RequestError&gt;"
+                  moduleName = "ChefDelivery.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kleitonmendes/Documents/Documentos%20-%20MacBook%20Air%20de%20Kleiton/Estudos/Swift/SwiftUI/ChefDelivery/ChefDelivery/ChefDelivery/Networking/HomeService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34">
+               </Location>
+               <Location
+                  uuid = "CE923CA7-AFEB-43A2-904E-96E5401455DA - baee272da63ec2b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for ChefDelivery.HomeService.confirmOrder(product: ChefDelivery.ProductType) async throws -&gt; Swift.Result&lt;Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, ChefDelivery.RequestError&gt;"
+                  moduleName = "ChefDelivery.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kleitonmendes/Documents/Documentos%20-%20MacBook%20Air%20de%20Kleiton/Estudos/Swift/SwiftUI/ChefDelivery/ChefDelivery/ChefDelivery/Networking/HomeService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34">
+               </Location>
+               <Location
+                  uuid = "CE923CA7-AFEB-43A2-904E-96E5401455DA - 10b2264ca38eb6ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ChefDelivery.HomeService.confirmOrder(product: ChefDelivery.ProductType) async throws -&gt; Swift.Result&lt;Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, ChefDelivery.RequestError&gt;"
+                  moduleName = "ChefDelivery.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kleitonmendes/Documents/Documentos%20-%20MacBook%20Air%20de%20Kleiton/Estudos/Swift/SwiftUI/ChefDelivery/ChefDelivery/ChefDelivery/Networking/HomeService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -34,6 +78,22 @@
             endingLineNumber = "38"
             landmarkName = "confirmOrder()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1DC49D80-9186-4859-B42E-43089B466753"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChefDelivery/App/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
