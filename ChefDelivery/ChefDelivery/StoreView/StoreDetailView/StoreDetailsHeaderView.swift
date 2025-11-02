@@ -13,17 +13,20 @@ struct StoreDetailsHeaderView: View {
     
     var body: some View {
         VStack {
-            Image(store.headerImage)
-                .resizable()
-                .scaledToFit()
+            if let headerImage = store.headerImage {
+                Image(headerImage)
+                    .resizable()
+                    .scaledToFit()
+            }
             
             HStack {
                 Text(store.name)
                     .bold()
                 
                 Spacer()
-                
-                Image(store.logoImage)
+                if let logoImage = store.logoImage {
+                    Image(logoImage)
+                }
             }
             .padding(.vertical, 8)
             .padding(.horizontal)

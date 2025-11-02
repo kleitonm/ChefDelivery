@@ -36,6 +36,3 @@ struct ProductDetailHeaderView: View {
     }
 }
 
-#Preview {
-    ProductDetailHeaderView(product: storesMock[0].products[0])
-}

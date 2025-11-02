@@ -19,7 +19,7 @@ struct StoreDetailView: View {
             
             StoreDetailsHeaderView(store: store)
             
-            StoreDetailProductsView(products: store.products)
+            StoreDetailProductsView(products: store.products ?? [])
         }
     }
         .navigationTitle(store.name)

@@ -46,10 +46,6 @@ struct ProductDetailView: View {
     
 }
 
-#Preview {
-    ProductDetailView(product: storesMock[0].products[0])
-}
-
 struct ProductDetailButtonView: View {
     var onButtonPress: () -> Void
     

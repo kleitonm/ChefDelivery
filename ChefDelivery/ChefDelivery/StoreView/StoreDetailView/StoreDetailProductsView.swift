@@ -35,6 +35,6 @@ struct StoreDetailProductsView: View {
 
 struct StoreDetailProductsView_Previews: PreviewProvider {
     static var previews: some View {
-        StoreDetailProductsView(products: storesMock[0].products)
+        StoreDetailProductsView(products: storesMock[0].products ?? [])
     }
 }
