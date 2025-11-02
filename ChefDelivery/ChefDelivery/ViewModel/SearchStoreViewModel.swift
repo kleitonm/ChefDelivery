@@ -35,4 +35,11 @@ class SearchStoreViewModel: ObservableObject {
             }
         }
     }
+    
+    func filteredStores() -> [StoreType] {
+        if searchText.isEmpty {
+            return storesType
+        }
+        return storesType.filter {  $0.name.localizedCaseInsensitiveContains(searchText)}
+    }
 }

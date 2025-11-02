@@ -38,7 +38,7 @@ struct SearchStoreView: View {
                     searchTextView
                         .listRowSeparator(.hidden)
                     
-                    ForEach(viewModel.storesType, id: \.id) { store in
+                    ForEach(viewModel.filteredStores(), id: \.id) { store in
                         Text(store.name)
                             .font(.custom("Futura", size: 16))
                             .listRowInsets(EdgeInsets())
