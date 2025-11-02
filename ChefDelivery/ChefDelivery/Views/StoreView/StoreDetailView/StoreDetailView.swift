@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StoreDetailView: View {
     
-    @EnvironmentObject var store: StoreType
+    let store: StoreType
     @Environment(\.presentationMode) var presentationMode
     
     
@@ -17,9 +17,9 @@ struct StoreDetailView: View {
         ScrollView(showsIndicators: false) {
         VStack(alignment: .leading) {
             
-            StoreDetailsHeaderView()
+            StoreDetailsHeaderView(store: store)
             
-            StoreDetailProductsView()
+            StoreDetailProductsView(products: store.products ?? [])
         }
     }
         .navigationTitle(store.name)
@@ -44,7 +44,6 @@ struct StoreDetailView: View {
 
 struct StoreDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        StoreDetailView()
-            .environmentObject(storesMock[0])
+        StoreDetailView(store: storesMock[0])
     }
 }

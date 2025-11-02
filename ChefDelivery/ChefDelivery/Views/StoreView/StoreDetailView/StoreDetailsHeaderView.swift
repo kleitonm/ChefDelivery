@@ -9,21 +9,24 @@ import SwiftUI
 
 struct StoreDetailsHeaderView: View {
     
-    @EnvironmentObject var store: StoreType
+    let store: StoreType
     
     var body: some View {
         VStack {
-            Image(store.headerImage)
-                .resizable()
-                .scaledToFit()
+            if let headerImage = store.headerImage {
+                Image(headerImage)
+                    .resizable()
+                    .scaledToFit()
+            }
             
             HStack {
                 Text(store.name)
                     .bold()
                 
                 Spacer()
-                
-                Image(store.logoImage)
+                if let logoImage = store.logoImage {
+                    Image(logoImage)
+                }
             }
             .padding(.vertical, 8)
             .padding(.horizontal)
@@ -44,6 +47,5 @@ struct StoreDetailsHeaderView: View {
 }
 
 #Preview {
-    StoreDetailsHeaderView()
-        .environmentObject(storesMock[0])
+    StoreDetailsHeaderView(store: storesMock[0])
 }
