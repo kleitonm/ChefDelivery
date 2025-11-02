@@ -9,21 +9,19 @@ import SwiftUI
 
 struct SearchStoreView: View {
     
-    let service: SearchService
-    @State var storesType: [StoreType] = []
-    @State var searchText: String = ""
+    @ObservedObject var viewModel: SearchStoreViewModel
     
     // MARK: - Views
     var searchTextView: some View {
         HStack {
-            TextField("Pesquisar em Chef Delivery", text: $searchText)
+            TextField("Pesquisar em Chef Delivery", text: $viewModel.searchText)
                 .padding(7)
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
             
             Button {
-                searchText = ""
+                viewModel.searchText = ""
             } label: {
                 Image(systemName: "xmark.circle.fill")
                     .foregroundColor(.gray)
@@ -40,7 +38,7 @@ struct SearchStoreView: View {
                     searchTextView
                         .listRowSeparator(.hidden)
                     
-                    ForEach(storesType, id: \.id) { store in
+                    ForEach(viewModel.storesType, id: \.id) { store in
                         Text(store.name)
                             .font(.custom("Futura", size: 16))
                             .listRowInsets(EdgeInsets())
@@ -57,25 +55,6 @@ struct SearchStoreView: View {
                 Spacer()
             }
         }
-        .onAppear() {
-            fetchData()
-        }
     }
-    // MARK: - Class methods
-    
-    func fetchData() {
-        Task {
-            do {
-                let result = try await service.fetchData()
-                switch result {
-                case .success(let stores):
-                    self.storesType = stores
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
+   
 }
